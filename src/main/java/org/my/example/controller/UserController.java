@@ -1,6 +1,6 @@
-package my.springboot_mvcjpa_231.controller;
+package org.my.example.controller;
 
-import my.springboot_mvcjpa_231.service.UserService;
+import org.my.example.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;

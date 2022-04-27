@@ -1,17 +1,18 @@
-package my.springboot_mvcjpa_231.model;
+package org.my.example.model;
 
 import org.springframework.security.core.GrantedAuthority;
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "role")
+@Table(name = "Role")
 public class Role implements GrantedAuthority {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(unique = true)
     private String roleName;
 
     @ManyToMany(fetch = FetchType.LAZY, mappedBy = "roles")

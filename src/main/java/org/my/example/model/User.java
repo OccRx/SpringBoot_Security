@@ -1,6 +1,5 @@
-package my.springboot_mvcjpa_231.model;
+package org.my.example.model;
 
-import org.springframework.lang.NonNull;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
@@ -8,7 +7,7 @@ import java.util.Collection;
 import java.util.List;
 
 @Entity
-@Table(name = "user")
+@Table(name = "User")
 public class User implements UserDetails {
 
     @Id
@@ -17,23 +16,19 @@ public class User implements UserDetails {
     private Long id;
 
     @Column(name = "name", unique = true)
-    @NonNull
     private String name;
 
-    @Column(name = "last_name")
     private String lastName;
 
-    @Column(name = "password")
     private String password;
 
-    @Column(name = "age")
     private int age;
 
 
     @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "user_roles",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    @JoinTable(name = "users_roles",
+            joinColumns = @JoinColumn(name = "users_id"),
+            inverseJoinColumns = @JoinColumn(name = "roles_id"))
     private List<Role> roles;
 
     public User() {

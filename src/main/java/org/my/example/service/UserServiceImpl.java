@@ -1,22 +1,24 @@
-package my.springboot_mvcjpa_231.service;
+package org.my.example.service;
 
-import my.springboot_mvcjpa_231.Repositories.UserRepository;
-import my.springboot_mvcjpa_231.model.User;
+import org.my.example.repositories.UserRepository;
+import org.my.example.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import java.util.List;
 
 @Service
 @Transactional
-public class UserServiceImp implements UserService {
+public class UserServiceImpl implements UserService {
+
     private UserRepository userRepository;
     private BCryptPasswordEncoder bcrypt;
 
     @Autowired
-    public UserServiceImp(UserRepository userRepository, BCryptPasswordEncoder bcrypt) {
+    public UserServiceImpl(UserRepository userRepository, BCryptPasswordEncoder bcrypt) {
         this.userRepository = userRepository;
         this.bcrypt = bcrypt;
     }
@@ -39,7 +41,7 @@ public class UserServiceImp implements UserService {
 
     @Override
     public UserDetails loadUserByUsername(String username) {
-       return userRepository.findUserByName(username);
+       return userRepository.findUserByNameAndRoles(username);
     }
 
     @Override
@@ -54,7 +56,7 @@ public class UserServiceImp implements UserService {
 
     @Override
     public User findUserByName(String name) {
-        return userRepository.findUserByName(name);
+        return userRepository.findUserByNameAndRoles(name);
     }
 
 }

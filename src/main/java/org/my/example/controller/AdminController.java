@@ -1,8 +1,8 @@
-package my.springboot_mvcjpa_231.controller;
+package org.my.example.controller;
 
-import my.springboot_mvcjpa_231.Repositories.RoleRepository;
-import my.springboot_mvcjpa_231.model.User;
-import my.springboot_mvcjpa_231.service.UserService;
+import org.my.example.model.User;
+import org.my.example.service.RoleService;
+import org.my.example.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -10,14 +10,14 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("/admin")
-public class AdminUserController {
+public class AdminController {
 
-    private final UserService userService;
-    private final RoleRepository roleRepository;
+    private UserService userService;
+    private RoleService roleService;
 
-    public AdminUserController(UserService userService, RoleRepository roleRepository) {
+    public AdminController(UserService userService, RoleService roleService) {
         this.userService = userService;
-        this.roleRepository = roleRepository;
+        this.roleService = roleService;
     }
 
     @GetMapping("")
@@ -29,14 +29,14 @@ public class AdminUserController {
 
     @GetMapping(value = "/newUserForm")
     public String addUserForm(@ModelAttribute("user") User user, Model model) {
-        model.addAttribute("roleList", roleRepository.findAll());
+        model.addAttribute("roleList", roleService.findAll());
         return "/newUser";
     }
 
     @GetMapping(value = "/updateUserForm")
     public String updateForm(@RequestParam(value = "id") Long id, Model model) {
         model.addAttribute("user", userService.findUserById(id));
-        model.addAttribute("roleList", roleRepository.findAll());
+        model.addAttribute("roleList", roleService.findAll());
         return "/update";
     }
 

@@ -1,6 +1,6 @@
-package my.springboot_mvcjpa_231.service;
+package org.my.example.service;
 
-import my.springboot_mvcjpa_231.model.User;
+import org.my.example.model.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 import java.util.List;

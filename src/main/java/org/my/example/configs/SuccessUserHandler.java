@@ -1,4 +1,4 @@
-package my.springboot_mvcjpa_231.configs;
+package org.my.example.configs;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.AuthorityUtils;
