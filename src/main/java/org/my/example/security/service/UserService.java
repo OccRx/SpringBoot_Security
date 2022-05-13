@@ -1,6 +1,6 @@
-package org.my.example.service;
+package org.my.example.security.service;
 
-import org.my.example.model.User;
+import org.my.example.security.model.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 import java.util.List;
@@ -16,5 +16,6 @@ public interface UserService extends UserDetailsService {
 
     void deleteUserById(long id);
 
-    User findUserByName(String name);
+    User findUserByNameAndRoles(String name);
+
 }

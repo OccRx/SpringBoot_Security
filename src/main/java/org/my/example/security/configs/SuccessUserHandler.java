@@ -1,4 +1,4 @@
-package org.my.example.configs;
+package org.my.example.security.configs;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.AuthorityUtils;

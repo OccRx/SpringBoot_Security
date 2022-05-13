@@ -1,8 +1,8 @@
-package org.my.example.controller;
+package org.my.example.security.controller;
 
-import org.my.example.model.User;
-import org.my.example.service.RoleService;
-import org.my.example.service.UserService;
+import org.my.example.security.model.User;
+import org.my.example.security.service.RoleService;
+import org.my.example.security.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -12,8 +12,8 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/admin")
 public class AdminController {
 
-    private UserService userService;
-    private RoleService roleService;
+    private final UserService userService;
+    private final RoleService roleService;
 
     public AdminController(UserService userService, RoleService roleService) {
         this.userService = userService;

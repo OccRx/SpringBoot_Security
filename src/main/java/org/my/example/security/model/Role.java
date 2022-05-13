@@ -1,11 +1,11 @@
-package org.my.example.model;
+package org.my.example.security.model;
 
 import org.springframework.security.core.GrantedAuthority;
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "Role")
+@Table(name = "role")
 public class Role implements GrantedAuthority {
 
     @Id

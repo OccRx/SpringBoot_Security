@@ -10,10 +10,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <groupId>my</groupId>
-        <artifactId>SpringBoot_MVC-JPA_231</artifactId>
+    <groupId>org.my.example</groupId>
+        <artifactId>security</artifactId>
             <version>0.0.1-SNAPSHOT</version>
-                <name>231SpringBoot_MVC-JPA</name>
+                <name>security</name>
 <!--                    <description>231SpringBoot_MVC-JPA</description>-->
     <properties>
         <java.version>17</java.version>

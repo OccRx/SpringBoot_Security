@@ -1,6 +1,6 @@
-package org.my.example.controller;
+package org.my.example.security.controller;
 
-import org.my.example.service.UserService;
+import org.my.example.security.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -22,7 +22,7 @@ public class UserController {
 
     @GetMapping("")
     public String printUser(@AuthenticationPrincipal UserDetails userDetails, Model model) {
-        model.addAttribute("user", userService.findUserByName(userDetails.getUsername()));
+        model.addAttribute("user", userService.findUserByNameAndRoles(userDetails.getUsername()));
         return "user";
     }
 

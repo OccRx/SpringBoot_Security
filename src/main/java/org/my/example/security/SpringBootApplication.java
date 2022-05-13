@@ -1,4 +1,4 @@
-package org.my.example;
+package org.my.example.security;
 
 import org.springframework.boot.SpringApplication;
 

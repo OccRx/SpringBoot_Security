@@ -1,4 +1,4 @@
-package org.my.example.model;
+package org.my.example.security.model;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -7,7 +7,7 @@ import java.util.Collection;
 import java.util.List;
 
 @Entity
-@Table(name = "User")
+@Table(name = "user")
 public class User implements UserDetails {
 
     @Id
@@ -27,8 +27,8 @@ public class User implements UserDetails {
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "users_roles",
-            joinColumns = @JoinColumn(name = "users_id"),
-            inverseJoinColumns = @JoinColumn(name = "roles_id"))
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
     private List<Role> roles;
 
     public User() {

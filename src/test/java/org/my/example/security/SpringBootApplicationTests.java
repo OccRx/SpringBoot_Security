@@ -1,4 +1,4 @@
-package org.my.example;
+package org.my.example.security;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,21 +1,20 @@
-package org.my.example.service;
+package org.my.example.security.service;
 
-import org.my.example.repositories.UserRepository;
-import org.my.example.model.User;
+import org.my.example.security.model.User;
+import org.my.example.security.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.util.List;
 
 @Service
 @Transactional
 public class UserServiceImpl implements UserService {
 
-    private UserRepository userRepository;
-    private BCryptPasswordEncoder bcrypt;
+    private final UserRepository userRepository;
+    private final BCryptPasswordEncoder bcrypt;
 
     @Autowired
     public UserServiceImpl(UserRepository userRepository, BCryptPasswordEncoder bcrypt) {
@@ -41,7 +40,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDetails loadUserByUsername(String username) {
-       return userRepository.findUserByNameAndRoles(username);
+        return userRepository.findUserByNameAndRoles(username);
     }
 
     @Override
@@ -55,7 +54,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User findUserByName(String name) {
+    public User findUserByNameAndRoles(String name) {
         return userRepository.findUserByNameAndRoles(name);
     }
 

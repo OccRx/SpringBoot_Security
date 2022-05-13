@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.w3.org/1999/xhtml">
+      >
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 <head>
     <meta charset="UTF-8">
@@ -12,7 +12,7 @@
     <div class="m-3 bg-light">
      <h2>Пользователи</h2>
     </div>
-    <div sec:authorize="hasRole('ROLE_ADMIN')" class="m-3 bg-light" >
+    <div class="m-3 bg-light" >
         <a class="btn btn-outline-dark" th:href="@{/admin/newUserForm}">Добавить пользователя</a>
     </div>
     <div>

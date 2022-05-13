@@ -1,6 +1,6 @@
-package org.my.example.repositories;
+package org.my.example.security.repositories;
 
-import org.my.example.model.User;
+import org.my.example.security.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -11,6 +11,5 @@ public interface UserRepository extends JpaRepository<User,Long>{
 
     @Query("select u FROM User u join fetch u.roles where u.name =:name")
     User findUserByNameAndRoles(@Param("name") String name);
-
 
 }

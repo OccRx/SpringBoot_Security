@@ -1,6 +1,6 @@
-package org.my.example.configs;
+package org.my.example.security.configs;
 
-import org.my.example.service.UserService;
+import org.my.example.security.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,8 +19,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
-    private SuccessUserHandler successUserHandler;
-    private UserService userService;
+    private final SuccessUserHandler successUserHandler;
+    private final UserService userService;
 
     @Autowired
     public WebSecurityConfig(SuccessUserHandler successUserHandler, UserService userService/*, BCryptPasswordEncoder bcrypt*/) {
